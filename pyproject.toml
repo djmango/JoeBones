@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "joebones"
+version = "0.1.0"
+description = ""
+authors = ["Sulaiman Ghori <sulaiman.ghori@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+ollama = "^0.1.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
