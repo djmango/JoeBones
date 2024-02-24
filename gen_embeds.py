@@ -16,7 +16,7 @@ with open(HERE / "input.json", "r") as f:
         start = time.perf_counter()
         print(f"Processing sentence {i+1} of {len(data)}")
         embed = ollama.embeddings("mistral", prompt=sentence)
-        embeds.append({"sentence": sentence, "embed": embed})
+        embeds.append({"sentence": sentence, "embed": embed["embedding"]})
         print(
             f"Completed sentence {i+1} of {len(data)} in {time.perf_counter() - start:.2f} seconds"
         )
