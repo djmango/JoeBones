@@ -1,2 +1,8 @@
-fn main():
+from python import Python
+
+fn main() raises:
+    Python.add_to_path("/Users/djmango/Library/Caches/pypoetry/virtualenvs/joebones-5pokv0lm-py3.12")
+    let ollama = Python.import_module("ollama")
+
     print("Hello, world!")
+
