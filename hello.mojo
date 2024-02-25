@@ -1,13 +1,14 @@
 from pathlib import Path
-from python import Python
+from python import Python, Dictionary
+from tensor import Tensor, TensorSpec, TensorShape
+
+let spec = TensorSpec(DType.float32, 1, 4096)
 
 struct SentEmbed:
   var sent: String
-  var embeds: DynamicVector[Float16]
-  
-  fn __init__(inout self, sent: String, embeds: DynamicVector[Float16]):
-    self.sent = sent
-    self.embeds = embeds
+  # var embeds: DynamicVector[Float16]
+  # var embeds: Tensor[DType.float32](spec)
+  var embeds: Tensor[DType.float32]
 
 fn main() raises:
     let json = Python.import_module("json")
@@ -17,7 +18,7 @@ fn main() raises:
       let file_content = f.read()
       data = json.loads(file_content)
       
-    # for (sent, embeds) in data.items():
+    # for sent in data.items():
     #   let embeds = DynamicVector[Float16](embeds)
     #   let sent_embed = SentEmbed(sent, embeds)
     #   sent_embeds.append(sent_embed)
